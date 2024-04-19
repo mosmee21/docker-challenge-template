@@ -1,0 +1,32 @@
+The neccessary steps i ollow to complete the challenge 4:
+
+Docker crashed due to an update, leading to a reinstall and loss of all data. After updating and reinstalling , I started from scratch to begin with challenge 4.
+
+
+1.Started by copy and pasting the project files to Challenge 4 folder from the previous challenge 3.
+
+2.After copying the files, I made sure to stop any services from Challenge 3 that were using the same ports as the ones needed for Challenge 4. This helped avoid any issues or errors during the setup process.
+
+3.Next ,Navigated to the project directory Challenge 4 where the docker-compose.yml file was located  in the terminal.
+
+4.Made a GET request to the application using my browser at http://localhost:8080/api/stats and recorded the hostname returned.
+
+5.Repeated the GET request multiple times and noted down the hostname each time and researched how to scale up a Docker service and found the necessary commands.
+
+6.Now, when I tried to scale up the "node-service" from 1 to 3 instances using the docker-compose up -d --scale node-service=3 command, I faced some challenges. I attempted this command multiple times (around 3-4 times), but it didn't work as expected. Consequently, I had to roll back by executing docker-compose down, which brought everything down.
+
+7.Afterwards, I rebuilt the Docker containers with docker-compose up -d and decided to make some changes to the nginx configuration to handle the load balancing. I modified the nginx.config file to define an upstream block with three server blocks, each pointing to a different node service instance.
+
+8.Additionally, I updated the docker-compose.yml file to give each node service a unique name and dependency.
+
+9.Then, I rebuilt the containers with docker-compose up -d --build nginx, checked the status with docker-compose ps, and examined the logs with docker-compose logs nginx. Finally, I browsed to http://localhost:8080/api/stats to see if the hostname changed with each request, confirming the successful scaling of the service.
+
+10.In the end, I took screenshots of everything important to show that I finished the challenge. I snapped shots of the terminal where I ran Docker commands, the browser showing different hostnames, and any logs or messages confirming that the service was scaled up.
+
+11.In summary, the whole process starting from reinstalltion to get the 3 different hostnames it took approximately 3-4 hours to achieve the outcome.
+
+
+
+
+
+

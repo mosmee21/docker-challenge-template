@@ -1,0 +1,27 @@
+Challenge 1
+
+1. I set up Docker on my computer so I could run containers.
+
+2. Made an account on Docker Hub for storing and managing my Docker images.
+
+3. Went on GitHub and forked the provided repository to get my own copy to work on.
+
+4. Opened the challenge1 folder. This is where I’ll be working.
+
+5. Inside challenge1, I made a new folder called public to keep my web page files.
+
+6.In the public folder, I created an index.html file and wrote the code for html file and put my name and student ID in it.
+
+7.I then created a Dockerfile in the challenge1 directory. 
+8. Ran the command docker build -t mausami/simple-web . to create a Docker image called mausami/simple-web.
+
+9 To get my web server running, I used docker run -d -p 8080:80 mausami/simple-web.
+
+10. I used the docker ps command to see my running containers and confirm everything was set up correctly.
+
+11. Opened Docker Desktop, clicked the local link 8080:80, and checked my static site at localhost:8080.
+
+12. Captured a screenshot showing my static website with my name and student ID displayed.
+
+13. Finally, I pushed all my new changes, including the index.html and Dockerfile, to my GitHub repository under the challenge1 directory.
+
