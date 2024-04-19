@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - node-service
+
+  node-service:
+    build: ./docker/api
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=app_user       # Replace with your actual username
+      - DB_PASSWORD=An0th3rS3cure! # Replace with your actual password
+      - DB_DATABASE=app_db         # Replace with your actual database name
+    depends_on:
+      - db
+
+  db:
+    build: ./docker/db
+    environment:
+      - MYSQL_ROOT_PASSWORD=S3cur3P@ss! # Replace with your actual root password
+      - MYSQL_DATABASE=app_db           # Replace with your actual database name
+      - MYSQL_USER=app_user             # Replace with your actual username
+      - MYSQL_PASSWORD=An0th3rS3cure!   # Replace with your actual password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

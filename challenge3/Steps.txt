@@ -1,0 +1,21 @@
+The neccessary steps i follow to complete the Challenge 3:
+
+
+1.The first thing I did was unzip the `challenge3.zip` file into my working directory. 
+
+2.Then, I created a `.env` file. This is where I listed all the environmental variables needed for the application and the database to communicate properly. It's like giving them a secret username and password.
+
+2.Next up was the `docker-compose.yml` file. I carefully defined all the services: our web server Nginx, the Node.js app, and the MariaDB database setup usinf the correct credentials.
+
+3.Then i ran this command `docker-compose build` to build the Docker images. But then hit an error straight away. It said something about a path for the database context not being found. It stucked me for a good half hour as I go through the files. Turns out, the build context needed some fixing.
+
+4.Correcting the file paths was like navigating through a maze. But once I got it right, the `docker-compose build` worked well, and the images were finally created.
+
+5.Next , I ran `docker-compose up -d` to get those containers up and running in detached mode. 
+6.Next , i ran  `docker-compose ps` to check the status. And there it was, all services up and marked as "Up" amd running well.
+
+7.Next ,I opened up my browser and navigated to `http://localhost:8080/api/books`. And A list of books in JSON format as outcome should be. I went a step further and checked `http://localhost:8080/api/books/1`. There it was, the details of just one book, just as it should be.
+
+8.Throughout this, I kept an eye on Docker Desktop's "Builds" tab to make sure everything was shipshape. No  errors, no pending builds, just the sweet success of green "Completed" statuses.
+
+9.In the end, I sat down to document the whole journey. From the unzipping to the final testing, every command typed, every error encountered, every correction made,and made sure to screenshot every results as a proof of submission and  it's all there. 
